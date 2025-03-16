@@ -1,0 +1,439 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/font/Lato/Lato-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../assets/font/PlayfairDisplay-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+/* ***** Reset & Base Styles ****** */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Lato';
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('../src/assets/img/jpeg-optimizer_closeup-marble-textured-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ***** Variables ****** */
+:root {
+    --primary-color: #ffffff;
+    --background-gradient-1: #1a1a1a;
+    --background-gradient-2: #2d2d2d;
+    --background-gradient-3: #404040;
+    --secondary-color: #E7BC0E;
+    --third-color: #6BC1A3;
+    --fourth-color: #CB91B6;
+    --fifth-color: black;
+    --last-color: #7EB8E1;
+}
+
+/* ******* Layout ******** */
+section {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+/ ******** Header *********/
+
+header {
+    display: flex;
+}
+
+.nav-box {
+    display: flex;
+    width: 100vw;
+    justify-content: flex-end;
+}
+
+.logo {
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.button-header {
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    margin-right: 5rem;
+    margin-top: 0.8rem;
+}
+
+
+
+
+/*  ******** page 1 ******* */
+
+.home-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.intro-section {
+  max-width: 800px;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.introducing-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  animation: slideFromRight 2.6s ease-out forwards;
+}
+
+.name-title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin: 1rem 0;
+  animation: slideFromLeft 4.6s ease-out forwards;
+}
+
+.profile-photo {
+  width: 300px;
+  height: 360px;
+  margin: 2rem auto;
+  display: block;
+  object-fit: cover;
+  border: 15px solid white;
+  border-bottom: 45px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.intro-window,
+.quote-window {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.intro-window {
+  text-align: center;
+}
+
+.quote-window {
+  position: relative;
+  padding: 0 4rem;
+}
+
+.introducing-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.introducing-text::before,
+.introducing-text::after {
+  font-family: 'Playfair', serif;
+  font-size: 9rem;
+  position: absolute;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.introducing-text::before {
+  content: '\201C';
+  left: -4rem;
+  top: -2rem;
+  color: var(--third-color);
+}
+
+.introducing-text::after {
+  content: '\201D';
+  right: -2rem;
+  bottom: -6rem;
+  color: var(--fifth-color);
+}
+
+.text-windows {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+
+/********** Skills Section **********/
+
+.skills-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 3rem;
+  max-width: 800px;
+  margin: 13rem auto;
+}
+
+.skills-section h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Lato';
+  font-weight: 500;
+  border-bottom: 4px solid var(--third-color);
+  width: fit-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.skills-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-section li {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: 'Lato';
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.skills-section li span {
+  color: var(--third-color);
+  font-size: 1.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+.learn-more {
+    margin: 7rem 0rem 0rem 3rem;
+}
+
+.v-logo {
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-left: 19rem;
+    margin-bottom: 10rem;
+}
+
+.page2-text {
+    font-size: 1.5rem;
+    letter-spacing: 0.7rem;
+    font-weight: 900;
+    color: var(--third-color);
+    width: 25rem;
+    margin: 3rem 3rem 3rem 3rem;
+}
+
+.page2-text span {
+    color: var(--primary-color);
+}
+
+/* ***** page 3 ******* */
+
+.general-logos {
+    width: 5rem;
+    margin: 6rem 0rem 1.5rem 15rem;
+}
+
+.page3-title {
+    color: var(--secondary-color);
+    font-size: 5rem;
+    margin-left: 15rem;
+}
+
+.page3-text {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-left: 15rem;
+    width: 30vw;
+}
+
+.page3-text span {
+    color: var(--primary-color);
+}
+
+/* ******* page 4 ******** */
+
+.page4-text {
+    color: var(--fourth-color);
+    font-size: 2rem;
+    margin-left: 15rem;
+} 
+
+.page4-text span{
+    color: var(--primary-color);
+}
+
+.page4-title {
+    color: var(--fourth-color);
+    font-size: 5rem;
+    margin-left: 15rem;
+}
+
+/* ******* page 5 ******** */
+
+.page5-title {
+    color: var(--third-color);
+    font-size: 5rem;
+    margin-left: 15rem;
+}
+
+.page5-text {
+    color: var(--third-color);
+    font-size: 2rem;
+    margin-left: 15rem;
+}
+
+/* ******* page 6 ******** */
+
+.page6-text {
+    color: var(--last-color);
+    font-size: 2rem;
+    margin-left: 15rem;
+    width: 34vw;
+}
+
+.page6-text span {
+    color: var(--primary-color);
+    background-color: var(--fifth-color);  
+}
+
+/* ******* page 7 ******** */
+
+.page7-family-photo {
+    background-image: url('../img/kid.png');
+    background-attachment: scroll;
+}
+
+/* ******* page 8 ******** */
+
+.page8-last-page {
+    display: flex;
+    flex-direction: column;
+    background-image: none;
+    background-color: var(--fifth-color);  
+    background-attachment: scroll;
+    justify-content: flex-end;
+}
+
+.page8-text {
+    color: var(--primary-color);
+    font-size: 4rem;
+    padding: 10rem 0rem 2rem 6rem;
+    width: 20vw;
+}
+
+/* ****** Donate Button ****** */
+
+.button-donate {
+    border: 1px solid var(--primary-color);
+    padding: 6px 9px;
+    color: var(--primary-color);
+    background-color: transparent;
+    margin-left: 6rem;
+    font-size: 1.4rem;
+    width: 10vw;
+}
+
+.page8-last-page .button-donate:hover {
+    box-shadow: 11px 11px 1px var(--primary-color); 
+}
+
+.last-text {
+    color: var(--primary-color);
+    justify-content: center;
+    align-self: center;
+    margin-top: 10rem;
+}
+
+.last-text span {
+    color: var(--third-color);
+}
+
+
+/********* Animationen *********/
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
