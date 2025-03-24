@@ -50,21 +50,24 @@ function HomePage() {
 
       <section id="home">
         <div className="home-container">
-        <div className="intro-section">
-          <h3 className="introducing-title">It's a pleasure to meet you!</h3>
-          <img src="/img/bewerbungsfoto_weiss_2024.jpg" alt="CV photo" className="profile-photo" />
-          <div className="intro-window">
-            <h1 className="name-title">My Name is Kami Shari</h1>
-            <h2 className="job-title">Junior IT Project Coordinator</h2>
+          <div className="intro-section">
+            <div className="intro-left">
+              <img src="/img/bewerbungsfoto_weiss_2024.jpg" alt="CV photo" className="profile-photo" />
+              <h3 className="job-title">Junior IT Project Coordinator</h3>
+            </div>
+            <div className="intro-right">
+              <div className="name-title">
+                <span>My name is</span>
+                <span>Kami Shari</span>
+              </div>
+              <h2 className="introducing-title">And it's a pleasure to meet you!</h2>
+              <p className="intro-text">
+                My ambition is to dive into project management, combining my extensive frontend experience with my past 
+                professional skills to bridge tech and business, creating solid, impactful, and user-friendly products while 
+                thriving in agile environments for flexibility and efficiency.
+              </p>
+            </div>
           </div>
-          <div className="quote-window">
-            <p className="introducing-text">
-              My ambition is to dive into project management, combining my extensive frontend experience with my past 
-              professional skills to bridge tech and business, creating solid, impactful, and user-friendly products while 
-              thriving in agile environments for flexibility and efficiency.
-            </p>
-          </div>
-        </div>
         </div>
       </section>
 
