@@ -1,14 +1,15 @@
 @import 'responsive.css';
 
+/* ***** Fonts ***** */
 @font-face {
-    font-family: 'Lato';
-    src: url('../assets/font/Lato/Lato-Regular.ttf') format('truetype');
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Playfair';
-    src: url('../assets/font/PlayfairDisplay-Regular.woff') format('woff');
+    font-family: 'Cormorant Garamond';
+    src: url('/fonts/CormorantGaramond-Regular.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -20,7 +21,7 @@
 }
 
 html, body {
-    font-family: 'Lato';
+    font-family: 'Montserrat', sans-serif;
     min-width: 320px;
     min-height: 100vh;
     overflow-x: hidden;
@@ -169,7 +170,8 @@ section {
 }
 
 .job-title {
-  font-size: 1.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
   color: var(--primary-color);
   margin-top: 2rem;
   text-align: center;
@@ -182,11 +184,17 @@ section {
 }
 
 .name-title {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 4.5rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
   animation: fadeIn 0.8s ease-out forwards;
   font-weight: 700;
+}
+
+.name-title span:first-child {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .name-title span {
@@ -195,6 +203,7 @@ section {
 }
 
 .introducing-title {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 2rem;
@@ -205,37 +214,6 @@ section {
 
 .intro-right {
   text-align: left;
-}
-
-.introducing-title {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.name-title {
-  font-size: 4.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.name-title span {
-  display: block;
-}
-
-.name-title span:first-child {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.introducing-title {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-  animation: fadeIn 0.8s ease-out 0.3s forwards;
-  opacity: 0;
 }
 
 .intro-text {
@@ -252,7 +230,7 @@ section {
 
 .intro-text::before,
 .intro-text::after {
-  font-family: 'Playfair', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 9rem;
   position: absolute;
   height: 13rem;
@@ -283,7 +261,7 @@ section {
 
 .introducing-text::before,
 .introducing-text::after {
-  font-family: 'Playfair', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 9rem;
   position: absolute;
   height: 1em;
@@ -327,7 +305,6 @@ section {
 .skills-section h2 {
   color: var(--primary-color);
   font-size: 2.5rem;
-  margin-bottom: 2rem;
   text-align: center;
   border-bottom: 4px solid var(--second-color);
   padding-bottom: 1rem;
@@ -380,15 +357,17 @@ section {
     width: fit-content;
     margin: 0rem auto 5rem auto;
     position: relative;
+    padding-bottom: 0.7rem;
 }
 
 .portfolio-title {
+    font-family: 'Cormorant Garamond', serif;
     color: var(--primary-color);
     font-size: 2.5rem;
     text-align: center;
-    border-bottom: 2px solid var(--second-color);
+    border-bottom: 1px solid var(--second-color);
     width: fit-content;
-    margin: 1rem auto 1.7rem auto;
+    margin: 4rem auto 1.7rem auto;
     position: relative;
 }
 
@@ -465,7 +444,7 @@ section {
 
 .portfolio-item p {
     color: var(--primary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     line-height: 1.8;
     font-size: 1.1rem;
     opacity: 0.9;
