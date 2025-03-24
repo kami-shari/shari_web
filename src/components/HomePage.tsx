@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 function HomePage() {
   const handleScroll = () => {
-    const sections = ['home', 'portfolio', 'cv'];
+    const sections = ['home', 'skills', 'portfolio', 'cv'];  
     
     sections.forEach(section => {
       const element = document.getElementById(section);
@@ -41,6 +41,7 @@ function HomePage() {
         <nav className="nav-box">
           <div className="nav-links">
             <a href="#home" className="nav-link active">Home</a>
+            <a href="#skills" className="nav-link">My Skills</a>
             <a href="#portfolio" className="nav-link">Portfolio</a>
             <a href="#cv" className="nav-link">CV</a>
             <a href="/imprint" className="nav-link">Impressum</a>
@@ -71,7 +72,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="page2-section">
+      <section id="skills" className="page2-section"> 
         <section className="skills-container">
             <div className="skills-section">
               <h2>My Skills</h2>

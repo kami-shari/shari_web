@@ -14,8 +14,14 @@
         height: 180px;
         object-fit: contain;
     }
-
 }
+
+
+
+
+
+
+
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
@@ -96,7 +102,55 @@
         font-size: 6rem;
         right: -1rem;
     }
+
+    .intro-section {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .name-title,
+    .introducing-title,
+    .job-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .intro-left {
+        order: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .profile-photo {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .job-title {
+        order: 4;
+    }
+
+    .introducing-text {
+        order: 5;
+        max-width: 600px;
+        margin: 1rem auto;
+        text-align: center;
+    }
+
+    .name-title {
+        order: 1;
+    }
+
+    .introducing-title {
+        order: 2;
+    }
 }
+
+
 
 /* Burger Menu Styles */
 .burger-menu {
@@ -113,7 +167,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background: var(--second-color);
+    background: var(--primary-color); 
     position: absolute;
     transition: all 0.3s ease;
 }
@@ -145,7 +199,7 @@
     bottom: 50%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 940px) {
     .burger-menu {
         display: block;
         position: fixed;
@@ -169,6 +223,7 @@
 
     .nav-box.active {
         right: 0;
+        width: 40%;
     }
 
     .nav-links {
@@ -177,10 +232,20 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background: rgba(0, 0, 0, 0.95);
     }
 
     .nav-link {
         font-size: 1.2rem;
         margin: 1rem 0;
+        color: var(--primary-color);
     }
 }
+
+
+
+
+
+
+
+

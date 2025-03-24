@@ -5,6 +5,7 @@ function Imprint() {
         <nav className="nav-box">
           <div className="nav-links">
             <a href="/" className="nav-link">Home</a>
+            <a href="/#skills" className="nav-link">My Skills</a>
             <a href="/#portfolio" className="nav-link">Portfolio</a>
             <a href="/#cv" className="nav-link">CV</a>
             <a href="/imprint" className="nav-link active">Impressum</a>
