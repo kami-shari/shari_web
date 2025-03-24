@@ -1,18 +1,58 @@
+import { useEffect } from 'react';
+
 function HomePage() {
+  const handleScroll = () => {
+    const sections = ['home', 'portfolio', 'cv'];
+    
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const offset = section === 'portfolio' ? 250 : 150;
+        const isVisible = rect.top <= offset && rect.bottom >= offset;
+        const link = document.querySelector(`[href="#${section}"]`);
+        if (link) {
+          if (isVisible) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
-      <header>
+      <header className="header">
+        <button className="burger-menu" onClick={() => document.querySelector('.nav-box')?.classList.toggle('active')}>
+          <div className="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
         <nav className="nav-box">
-          <img src="/heart.svg" alt="logo" className="logo" />
-          <a href="https://www.google.de/" className="button-header">Take Action</a>
+          <div className="nav-links">
+            <a href="#home" className="nav-link active">Home</a>
+            <a href="#portfolio" className="nav-link">Portfolio</a>
+            <a href="#cv" className="nav-link">CV</a>
+            <a href="/imprint" className="nav-link">Impressum</a>
+          </div>
         </nav>
       </header>
 
-      <section>
+      <section id="home">
         <div className="home-container">
         <div className="intro-section">
           <h3 className="introducing-title">It's a pleasure to meet you!</h3>
-          <img src="/bewerbungsfoto_weiss_2024.jpg" alt="CV photo" className="profile-photo" />
+          <img src="/img/bewerbungsfoto_weiss_2024.jpg" alt="CV photo" className="profile-photo" />
           <div className="intro-window">
             <h1 className="name-title">My Name is Kami Shari</h1>
             <h2 className="job-title">Junior IT Project Coordinator</h2>
@@ -29,60 +69,127 @@ function HomePage() {
       </section>
 
       <section className="page2-section">
-        <div className="skills-section">
-          <h2>My Skills</h2>
-          <ul>
-            <li><span>•</span> TypeScript, JavaScript, React, CSS/HTML</li>
-            <li><span>•</span> Supabase, Node.js</li>
-            <li><span>•</span> Agile Project Management <br /> 
-                (Certified Professional Scrum Master I - PSM I )</li>
-            <li><span>•</span> With 11 years of leadership experience in management and key account roles, I combine business knowledge with tech expertise to drive successful projects.</li>
-          </ul>
+        <section className="skills-container">
+            <div className="skills-section">
+              <h2>My Skills</h2>
+              <ul>
+                <li><span>•</span> TypeScript, JavaScript, React, CSS/HTML</li>
+                <li><span>•</span> Supabase, Node.js</li>
+                <li><span>•</span> Agile Project Management <br /> 
+                                  (Certified Professional Scrum Master I - PSM I) - February 2025</li>
+                <li><span>•</span> With 11 years of leadership experience in management and key account roles, I combine business knowledge with tech expertise to drive successful projects.</li>
+              </ul>
+            </div>
+        </section>
+      </section>
+
+      <section id="portfolio" className="portfolio-section">
+        <h2>Portfolio</h2>
+        <div className="portfolio-grid">
+          <div className="portfolio-item">
+            <div className="portfolio-zen-images">
+              <img src="/img/zen-1-screenshot.png" alt="Zen App Screenshot 1" />
+              <img src="/img/zen-3-screenshot.png" alt="Zen App Screenshot 3" />
+              <img src="/img/zen-2-screenshot.png" alt="Zen App Screenshot 2" />
+            </div>
+            <div className="portfolio-title">ZEN App</div>
+            <div className="portfolio-slogan">Yoga for Mind & Body</div>
+            <p>This project was developed as the final project of my six-month coding bootcamp in collaboration with two other participants. Built within eight days, Zen is a yoga app that offers a curated selection of yoga music and tutorials for various yoga poses. The app features a login function, allowing users to like and save their favorite content for a personalized experience.</p>
+            <div className="tech-stack">
+                <div className="tech-item">
+                    <img src="/img/tech_logos/html-css-logo.png" alt="HTML/CSS" />
+                    <span className="tech-label">CSS/HTML</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/react-logo.png" alt="React" />
+                    <span className="tech-label">React</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/typescript-logo.jpg" alt="TypeScript" />
+                    <span className="tech-label">TypeScript</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/supabase-logo.png" alt="Supabase" />
+                    <span className="tech-label">Supabase</span>
+                </div>
+            </div>
+            <div className="portfolio-links">
+              <a href="https://zen-yoga-app.netlify.app/" className="portfolio-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/kami-shari/zen" className="portfolio-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div className="portfolio-item">
+            <div className="project-image-container">
+              <img src="/img/recipe-world-screenshot.png" alt="Recipe World Screenshot" />
+            </div>
+            <div className="portfolio-title">Recipe World</div>
+            <div className="portfolio-slogan">Cook, Share, Inspire – Your Recipe Community</div>
+            <p>A recipe website with a registration and login feature, allowing users to create their own recipes and remove them from their personal list. I developed this as a solo project in seven days while becoming familiar with Supabase.</p>
+            <div className="tech-stack">
+                <div className="tech-item">
+                    <img src="/img/tech_logos/html-css-logo.png" alt="HTML/CSS" />
+                    <span className="tech-label">CSS/HTML</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/react-logo.png" alt="React" />
+                    <span className="tech-label">React</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/typescript-logo.jpg" alt="TypeScript" />
+                    <span className="tech-label">TypeScript</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/supabase-logo.png" alt="Supabase" />
+                    <span className="tech-label">Supabase</span>
+                </div>
+            </div>
+            <div className="portfolio-links">
+                <a href="https://recipe-world-l.netlify.app/" className="portfolio-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a href="https://github.com/kami-shari/recipe_world" className="portfolio-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div className="portfolio-item">
+            <div className="project-image-container">
+              <img src="/img/pokemon-screenshot.png" alt="Pokemon API Screenshot" />
+            </div>
+            <div className="portfolio-title">Pokemon API</div>
+            <div className="portfolio-slogan">Gotta Fetch ’em All</div>
+            <p>This website allows you to explore all 1,302 Pokémon, with the ability to listen to their original cry sounds on the detail page. Additionally, you can visit the types page to discover and categorize Pokémon by their respective types. This project was developed in collaboration with two other classmates, and we had three days to complete it.</p>
+            <div className="tech-stack">
+                <div className="tech-item">
+                    <img src="/img/tech_logos/html-css-logo.png" alt="HTML/CSS" />
+                    <span className="tech-label">CSS/HTML</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/react-logo.png" alt="React" />
+                    <span className="tech-label">React</span>
+                </div>
+                <div className="tech-item">
+                    <img src="/img/tech_logos/typescript-logo.jpg" alt="TypeScript" />
+                    <span className="tech-label">TypeScript</span>
+                </div>
+            </div>
+            <div className="portfolio-links">
+              <a href="https://pokemon-api-ten-taupe.vercel.app/" className="portfolio-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              <a href="https://github.com/kami-shari/pokemon_API" className="portfolio-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div className="more-projects">
+          <p>You can find more projects on my GitHub page:</p>
+          <div className="portfolio-links">
+            <a href="https://github.com/kami-shari/" className="portfolio-link" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+          </div>
         </div>
       </section>
 
-      <section>
-        <img src="/stat-workers-color.svg" alt="heads-logo" className="general-logos" />
-        <h2 className="page3-title">2.5 Million</h2>
-        <p className="page3-text">
-          domestic Workers <span>in the united states</span>
+      <section id="cv" className="cv-section">
+        <p className="cv-text">
+        Feel free to download my CV to explore my professional background and expertise.
         </p>
-      </section>
-
-      <section>
-        <img src="/stat-pay-color.svg" alt="pay-money" className="general-logos" />
-        <p className="page4-text">
-          70% are <span>paid less than</span>
-        </p>
-        <h2 className="page4-title">$13/HR</h2>
-      </section>
-
-      <section>
-        <img src="/stat-health-color.svg" alt="health-logo" className="general-logos" />
-        <h2 className="page5-title">65%</h2>
-        <p className="page5-text">
-          Have no <span>health insurance</span>
-        </p>
-      </section>
-
-      <section>
-        <p className="page6-text">
-          DOMESTIC WORKERS ARE <span>THE UNSUNG HEROINES OF OUR CHILDHOODS AND FAMILIES.</span>
-          THEY ARE NANNIES, HOUSE CLEANERS, AND CARE WORKERS — MOSTLY WOMEN OF COLOR AND
-          IMMIGRANTS. DESPITE THEIR IMPORTANT ROLES, THEIR WORK OFTEN GOES UNRECOGNIZED AND
-          THEIR INDUSTRY UNREGULATED. TAKE ACTION AND HELP US SHIFT THE NARRATIVE.
-        </p>
-      </section>
-
-      <section className="page7-family-photo"></section>
-
-      <section className="page8-last-page">
-        <p className="page8-text">
-          YOU CAN HELP IMPROVE WORKING CONDITIONS FOR DOMESTIC WORKERS.
-        </p>
-        <a href="https://www.google.de" className="button-donate">Donate</a>
-        <p className="last-text">
-          Website inspired from the film <span>ROMA</span>
+        <a href="/kami-shari-cv.pdf" className="button-download" download>Download Curriculum Vitae</a>
+        <p className="footer-text">
+        © 2025 Kami Shari. All rights reserved.
         </p>
       </section>
     </div>

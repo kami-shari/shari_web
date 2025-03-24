@@ -1,3 +1,5 @@
+@import 'responsive.css';
+
 @font-face {
     font-family: 'Lato';
     src: url('../assets/font/Lato/Lato-Regular.ttf') format('truetype');
@@ -10,7 +12,7 @@
     font-display: swap;
 }
 
-/* ***** Reset & Base Styles ****** */
+/* ***** Basic Styles ****** */
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +24,11 @@ html, body {
     min-width: 320px;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('../src/assets/img/jpeg-optimizer_closeup-marble-textured-background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('/img/jpeg-optimizer_closeup-marble-textured-background.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -45,60 +48,82 @@ a {
     color: inherit;
 }
 
-/* ***** Variables ****** */
+/* ***** Color ****** */
 :root {
     --primary-color: #ffffff;
-    --background-gradient-1: #1a1a1a;
-    --background-gradient-2: #2d2d2d;
-    --background-gradient-3: #404040;
-    --secondary-color: #E7BC0E;
-    --third-color: #6BC1A3;
-    --fourth-color: #CB91B6;
-    --fifth-color: black;
-    --last-color: #7EB8E1;
+    --second-color: #6BC1A3;
 }
 
 /* ******* Layout ******** */
 section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
-
-/ ******** Header *********/
-
-header {
-    display: flex;
+/* ******** Header & Navigation ********* */
+.header {
+    position: fixed;
+    top: 3rem;
+    right: 0.5rem;
+    z-index: 1000;
 }
 
 .nav-box {
     display: flex;
-    width: 100vw;
     justify-content: flex-end;
 }
 
-.logo {
-    width: 2rem;
-    margin-right: 1rem;
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.button-header {
-    background-color: transparent;
+.nav-link {
     color: var(--primary-color);
-    text-decoration: underline;
-    text-decoration-color: var(--secondary-color);
-    margin-right: 5rem;
-    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s ease;
+    opacity: 0.7;
+    text-align: right;
+    width: 100%;
 }
 
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    width: 2px;
+    height: 0;
+    background: var(--second-color);
+    transition: all 0.4s ease;
+    transform: translateY(-50%);
+}
 
+.nav-link:hover::after,
+.nav-link.active::after {
+    height: 100%;
+}
 
-
-/*  ******** page 1 ******* */
-
+.nav-link:hover,
+.nav-link.active {
+    color: var(--second-color);
+    opacity: 1;
+    padding-right: 1.5rem;
+}
+/*  ******** Intro Section ******* */
 .home-container {
   display: flex;
   min-height: 100vh;
@@ -191,33 +216,32 @@ header {
   content: '\201C';
   left: -4rem;
   top: -2rem;
-  color: var(--third-color);
+  color: var(--second-color);
 }
 
 .introducing-text::after {
   content: '\201D';
   right: -2rem;
   bottom: -6rem;
-  color: var(--fifth-color);
+  color: var(--second-color);
 }
 
-.text-windows {
+/*  ******** Skills Section ******* */
+.skills-container {
+  padding: 6rem 2rem;
   display: flex;
-  gap: 2rem;
+  align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 }
-
-
-/********** Skills Section **********/
 
 .skills-section {
+  width: 100%;
+  max-width: 800px;
+  padding: 3rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 3rem;
-  max-width: 800px;
-  margin: 13rem auto;
+  border-radius: 20px;
 }
 
 .skills-section h2 {
@@ -225,14 +249,10 @@ header {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  font-family: 'Lato';
-  font-weight: 500;
-  border-bottom: 4px solid var(--third-color);
+  border-bottom: 4px solid var(--second-color);
+  padding-bottom: 1rem;
   width: fit-content;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: 0 auto 2rem;
 }
 
 .skills-section ul {
@@ -248,169 +268,275 @@ header {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-family: 'Lato';
-  font-weight: 300;
-  letter-spacing: 0.5px;
+}
+
+.skills-section li:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .skills-section li span {
-  color: var(--third-color);
-  font-size: 1.8rem;
+  color: var(--second-color);
+  margin-right: 1rem;
+  font-size: 1.5rem;
 }
 
 
-
-
-
-
-
-
-
-
-.learn-more {
-    margin: 7rem 0rem 0rem 3rem;
-}
-
-.v-logo {
-    color: var(--secondary-color);
-    font-size: 2.5rem;
-    margin-left: 19rem;
-    margin-bottom: 10rem;
-}
-
-.page2-text {
-    font-size: 1.5rem;
-    letter-spacing: 0.7rem;
-    font-weight: 900;
-    color: var(--third-color);
-    width: 25rem;
-    margin: 3rem 3rem 3rem 3rem;
-}
-
-.page2-text span {
-    color: var(--primary-color);
-}
-
-/* ***** page 3 ******* */
-
-.general-logos {
-    width: 5rem;
-    margin: 6rem 0rem 1.5rem 15rem;
-}
-
-.page3-title {
-    color: var(--secondary-color);
-    font-size: 5rem;
-    margin-left: 15rem;
-}
-
-.page3-text {
-    color: var(--secondary-color);
-    font-size: 2rem;
-    margin-left: 15rem;
-    width: 30vw;
-}
-
-.page3-text span {
-    color: var(--primary-color);
-}
-
-/* ******* page 4 ******** */
-
-.page4-text {
-    color: var(--fourth-color);
-    font-size: 2rem;
-    margin-left: 15rem;
-} 
-
-.page4-text span{
-    color: var(--primary-color);
-}
-
-.page4-title {
-    color: var(--fourth-color);
-    font-size: 5rem;
-    margin-left: 15rem;
-}
-
-/* ******* page 5 ******** */
-
-.page5-title {
-    color: var(--third-color);
-    font-size: 5rem;
-    margin-left: 15rem;
-}
-
-.page5-text {
-    color: var(--third-color);
-    font-size: 2rem;
-    margin-left: 15rem;
-}
-
-/* ******* page 6 ******** */
-
-.page6-text {
-    color: var(--last-color);
-    font-size: 2rem;
-    margin-left: 15rem;
-    width: 34vw;
-}
-
-.page6-text span {
-    color: var(--primary-color);
-    background-color: var(--fifth-color);  
-}
-
-/* ******* page 7 ******** */
-
-.page7-family-photo {
-    background-image: url('../img/kid.png');
-    background-attachment: scroll;
-}
-
-/* ******* page 8 ******** */
-
-.page8-last-page {
+/* ******* Portfolio Section ******** */
+.portfolio-section {
+    padding: 8rem 2rem;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: none;
-    background-color: var(--fifth-color);  
-    background-attachment: scroll;
-    justify-content: flex-end;
+    align-items: center;
+    background: transparent;
 }
 
-.page8-text {
+.portfolio-section h2 {
     color: var(--primary-color);
-    font-size: 4rem;
-    padding: 10rem 0rem 2rem 6rem;
-    width: 20vw;
+    font-size: 2.5rem;
+    text-align: center;
+    border-bottom: 4px solid var(--second-color);
+    width: fit-content;
+    margin: 0rem auto 5rem auto;
+    position: relative;
 }
 
-/* ****** Donate Button ****** */
-
-.button-donate {
-    border: 1px solid var(--primary-color);
-    padding: 6px 9px;
+.portfolio-title {
     color: var(--primary-color);
-    background-color: transparent;
-    margin-left: 6rem;
-    font-size: 1.4rem;
-    width: 10vw;
+    font-size: 2.5rem;
+    text-align: center;
+    border-bottom: 2px solid var(--second-color);
+    width: fit-content;
+    margin: 1rem auto 1.7rem auto;
+    position: relative;
 }
 
-.page8-last-page .button-donate:hover {
-    box-shadow: 11px 11px 1px var(--primary-color); 
+.portfolio-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
 }
 
-.last-text {
-    color: var(--primary-color);
+.portfolio-slogan {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.tech-stack {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
     justify-content: center;
-    align-self: center;
-    margin-top: 10rem;
+    margin: 2rem 0;
+    height: 80px;
 }
 
-.last-text span {
-    color: var(--third-color);
+.tech-stack img {
+    width: 40px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.tech-label {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-item p {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.portfolio-zen-images {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 500px;
+}
+
+.portfolio-zen-images img {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+}
+
+.portfolio-zen-images img:nth-child(1),
+.portfolio-zen-images img:nth-child(3) {
+    width: calc(30% - 0.67rem);
+}
+
+.portfolio-zen-images img:nth-child(2) {
+    width: calc(40% - 0.67rem);
+}
+
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.portfolio-single-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+}
+
+.portfolio-link {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-link:hover {
+    background-color: var(--primary-color);
+    color: var(--second-color);
+    transform: translateY(-2px);
+}
+
+.more-projects {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--primary-color);
+    padding-top: 3rem;
+}
+
+.more-projects p {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* ******* Footer Section ******** */
+.cv-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    
+}
+
+.cv-text {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.button-download {
+    background-color: transparent;
+    color: var(--second-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.button-download:hover {
+    background-color: var(--primary-color);
+    color: var(--second-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-text {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-top: 12rem;
+    opacity: 0.8;
 }
 
 
@@ -436,4 +562,84 @@ header {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+/* ******* Imprint Page ******** */
+.imprint-container {
+  min-height: 100vh;
+  color: var(--primary-color);
+}
+
+.imprint-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 20px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+}
+
+.imprint-content h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--second-color);
+}
+
+.contact-info {
+  user-select: none;
+  pointer-events: none;
+  margin-bottom: 1rem;
+}
+
+.contact-svg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.legal-text {
+  color: var(--primary-color);
+}
+
+.legal-text h2 {
+  color: var(--second-color);
+}
+
+.legal-text p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.imprint-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.imprint-footer p {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--second-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.back-button:hover {
+  background: var(--primary-color);
+  color: var(--second-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: Arial, sans-serif;
+      fill: #ffffff;
+    }
+    .name { font-size: 16px; }
+    .address { font-size: 14px; }
+    .email { font-size: 14px; }
+  </style>
+  <text x="20" y="30" class="name">Kami Shari</text>
+  <text x="20" y="60" class="address">Schillingsrotter Str. 49</text>
+  <text x="20" y="85" class="address">50996 Köln</text>
+  <text x="20" y="110" class="email">kami.shari.mail@gmail.com</text>
+</svg>
