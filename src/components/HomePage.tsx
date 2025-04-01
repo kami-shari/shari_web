@@ -77,11 +77,10 @@ function HomePage() {
             <div className="skills-section">
               <h2>My Skills</h2>
               <ul>
-                <li><span>•</span> TypeScript, JavaScript, React, CSS/HTML</li>
-                <li><span>•</span> Supabase, Node.js</li>
-                <li><span>•</span> Agile Project Management <br /> 
-                                  (Certified Professional Scrum Master I - PSM I) - February 2025</li>
-                <li><span>•</span> With 11 years of leadership experience in management and key account roles, I combine business knowledge with tech expertise to drive successful projects.</li>
+                <li><span>•</span> TypeScript, JavaScript, React, Supabase, Node.js, CSS/HTML</li>
+                <li><span>•</span> Professional Scrum Master I (PSM I), Scrum.org (Feb 2025)</li>
+                <li><span>•</span> Professional Scrum Product Owner I (PSPO I), Scrum.org (Apr 2025)</li>
+                <li><span>•</span> 14 years management and key account roles experience & coding knowledge: bridging business & tech for successful IT projects.</li>
               </ul>
             </div>
         </section>

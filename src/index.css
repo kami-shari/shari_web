@@ -53,6 +53,7 @@ a {
 :root {
     --primary-color: #ffffff;
     --second-color: #6BC1A3;
+    --third-color: #333;
 }
 
 /* ******* Layout ******** */
@@ -718,37 +719,3 @@ section {
 
 
 
-
-
-/* 
-@media screen and (max-width: 940px) {
-  .intro-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 6rem 2rem 2rem;
-  }
-
-  .name-title {
-      margin-bottom: 1rem;
-  }
-
-  .introducing-title {
-      margin-bottom: 2rem;
-  }
-
-  .intro-left {
-      margin: 2rem auto;
-  }
-
-  .job-title {
-      margin: 1rem auto 2rem;
-      text-align: center;
-  }
-
-  .intro-text {
-      margin-top: 2rem;
-      text-align: center;
-  }
-} */
