@@ -40,11 +40,11 @@ function HomePage() {
         </button>
         <nav className="nav-box">
           <div className="nav-links">
-            <a href="#home" className="nav-link active">Home</a>
-            <a href="#skills" className="nav-link">My Skills</a>
-            <a href="#portfolio" className="nav-link">Portfolio</a>
-            <a href="#cv" className="nav-link">CV</a>
-            <a href="/imprint" className="nav-link">Impressum</a>
+            <a href="#home" className="nav-link active" onClick={() => document.querySelector('.nav-box')?.classList.remove('active')}>Home</a>
+            <a href="#skills" className="nav-link" onClick={() => document.querySelector('.nav-box')?.classList.remove('active')}>My Skills</a>
+            <a href="#portfolio" className="nav-link" onClick={() => document.querySelector('.nav-box')?.classList.remove('active')}>Portfolio</a>
+            <a href="#cv" className="nav-link" onClick={() => document.querySelector('.nav-box')?.classList.remove('active')}>CV</a>
+            <a href="/imprint" className="nav-link" onClick={() => document.querySelector('.nav-box')?.classList.remove('active')}>Impressum</a>
           </div>
         </nav>
       </header>
@@ -63,9 +63,11 @@ function HomePage() {
               </div>
               <h2 className="introducing-title">And it's a pleasure to meet you!</h2>
               <p className="intro-text">
+                <span className="quote-marks">"</span>
                 My ambition is to dive into project management, combining my extensive frontend experience with my past 
                 professional skills to bridge tech and business, creating solid, impactful, and user-friendly products while 
                 thriving in agile environments for flexibility and efficiency.
+                <span className="quote-marks">"</span>
               </p>
             </div>
           </div>
@@ -188,9 +190,16 @@ function HomePage() {
 
       <section id="cv" className="cv-section">
         <p className="cv-text">
-        Feel free to download my CV to explore my professional background and expertise.
+        Feel free to download my CV to explore my professional background and expertise:
         </p>
         <a href="/kami-shari-cv.pdf" className="button-download" download>Download Curriculum Vitae</a>
+        <p className="or-text">
+        Or
+        </p>
+        <p className="linkedin-text">
+        Visit my LinkedIn Profile:
+        </p>
+        <a href="https://www.linkedin.com/in/kami-shari/" className="button-download" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <p className="footer-text">
         © 2025 Kami Shari. All rights reserved.
         </p>
