@@ -24,7 +24,7 @@ function HomePage() {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -61,7 +61,7 @@ function HomePage() {
                 <span>My name is</span>
                 <span>Kami Shari</span>
               </div>
-              <h2 className="introducing-title">And it's a pleasure to meet you!</h2>
+              <h2 className="introducing-title">and it's a pleasure to meet you!</h2>
               <p className="intro-text">
                 <span className="quote-marks">"</span>
                 My ambition is to dive into project management, combining my extensive frontend experience with my past 
@@ -93,8 +93,9 @@ function HomePage() {
         <div className="portfolio-grid">
           <div className="portfolio-item">
             <div className="portfolio-zen-images">
+            <img src="/img/zen-3-screenshot.png" alt="Zen App Screenshot 3" />
               <img src="/img/zen-1-screenshot.png" alt="Zen App Screenshot 1" />
-              <img src="/img/zen-3-screenshot.png" alt="Zen App Screenshot 3" />
+
               <img src="/img/zen-2-screenshot.png" alt="Zen App Screenshot 2" />
             </div>
             <div className="portfolio-title">ZEN App</div>
@@ -192,7 +193,7 @@ function HomePage() {
         <p className="cv-text">
         Feel free to download my CV to explore my professional background and expertise:
         </p>
-        <a href="/kami-shari-cv.pdf" className="button-download" download>Download Curriculum Vitae</a>
+        <a href="/kami-shari-cv.pdf" className="button-download" download>Coming soon!</a>
         <p className="or-text">
         Or
         </p>

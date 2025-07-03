@@ -143,11 +143,18 @@
 
         .profile-photo {
     height: 260px;
-    width: 220px; 
+    width: 220px;
+    min-width: 180px;       
+    
     object-fit: cover;
+          
+    }
+    .intro-section {
+        padding: 2rem 1rem;     
+    }
     
         
-  }
+  
 
 
 
